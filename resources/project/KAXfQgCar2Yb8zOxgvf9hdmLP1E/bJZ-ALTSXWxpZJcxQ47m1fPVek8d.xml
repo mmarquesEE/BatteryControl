@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="1" Icon="" File="models/Temperature/chamber_params.m" Name="chamber_params">
+    <Extension Value="b66ce1ed-13cb-44ca-bc61-15bec4d87bd0" Name="StartUpPrev"/>
+</Info>

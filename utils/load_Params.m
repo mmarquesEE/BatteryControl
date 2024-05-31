@@ -20,11 +20,11 @@ Voc = vocFitSimulink(SOC);
 % ylabel("$V_{oc}(V)$",Interpreter="latex");
 
 %% Warburg distributed parameters and block creation
-Rd = 2e-3;
+Rd = 1e-3;
 Cd = 10e5;
 N = 100;
 
-createZw = 1;
+createZw = 0;
 
 if(createZw)
     open_system(new_system("Zw","Subsystem"));
@@ -49,9 +49,9 @@ if(createZw)
             add_line(modelname,['C',num2str(i),'/Rconn 1'],['C',num2str(i-1),'/Rconn 1']);
         end
 
-        set_param([modelname,'/R',num2str(i)],"r",num2str(Rd/N));
+        set_param([modelname,'/R',num2str(i)],"r","Rd/N");
         set_param([modelname,'/C',num2str(i)],"r","0");
-        set_param([modelname,'/C',num2str(i)],"c",num2str(Cd/N));
+        set_param([modelname,'/C',num2str(i)],"c","Cd/N");
     end
 
     pcf = get_param([modelname,'/C',num2str(N)],"Position");
